@@ -7,4 +7,4 @@ class HelloForm(forms.Form):
         ('two','item 2'),
         ('three','item 3')
         ]
-    choice=forms.ChoiceField(label="Choice" ,choices=data)
+    choice=forms.ChoiceField(label="radio" ,choices=data ,widget=forms.RadioSelect())
