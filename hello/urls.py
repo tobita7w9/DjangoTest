@@ -4,10 +4,10 @@ Created on Wed Sep  7 22:05:59 2022
 
 @author: flyt-
 """
-
-from django.urls import path
+from django.urls import re_path
 from . import views
+from .views import HelloView
 
 urlpatterns=[
-    path('',views.index,name="index"),
+    re_path('',HelloView.as_view() ,name="index"),
     ]
