@@ -3,35 +3,17 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-#def index(request,nickname,age):
-
-"""
-    if 'msg' in request.GET:
-        msg=request.GET["msg"]
-        result='you typed: "' + msg + '".'
-    else:
-        result='please send msg parameter!'
-"""    
-#    result='your id: '+ str(id)+' , name: "' + nickname + '".'
-#    result='your account:' +nickname+'" ('+str(age)+').'
-    
-#    return HttpResponse(result)
-
-#def index(request):
-#    return render(request, "hello/index.html")
-
 def index(request):
     params={
         "title":"Hello/Index",
-        "msg":"これはサンプルで作ったページです。",
-        "goto":"next"
+        "msg":"お名前は？",
         }
     return render(request, "hello/index.html",params)
 
-def next(request):
+def form(request):
+    msg=request.POST['msg']
     params={
-        "title":"Hello/Next",
-        "msg":"これはもうひとつのページです。",
-        "goto":"index"
+        "title":"Hello/Form",
+        "msg":"こんにちは、"+ msg +"さん。",
         }
     return render(request,"hello/index.html",params)
