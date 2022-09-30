@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from .forms import HelloForm
+from .models import Friend
 # Create your views here.
-
+"""
 class HelloView(TemplateView):
     
     def __init__(self):
@@ -26,3 +27,13 @@ class HelloView(TemplateView):
         self.params["result"]=result
         self.params["form"]=HelloForm(request.POST)
         return render(request,"hello/index.html" ,self.params)
+"""
+
+def index(request):
+    data=Friend.objects.all()
+    params={
+        'title':"Hello",
+        'message':'all friends.',
+        'data':data,
+    }
+    return render(request,'hello/index.html',params)
