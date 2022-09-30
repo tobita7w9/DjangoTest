@@ -8,17 +8,7 @@
 </head>
 <body>
     <h1>{{title}}</h1>
-    <p>{{data}}</p>
-    <table>
-        <tr>
-            <td>data</td>
-        </tr>
-    {% for item in data %}
-        <tr>
-            <td>{{item}}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <table>{{data|safe}}</table>
 </body>
 </html>
     
